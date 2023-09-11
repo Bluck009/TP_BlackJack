@@ -34,10 +34,10 @@ namespace TP_BlackJack
                 sorte = value; }
         }
 
-        public Carte (int valeur, Sorte sorte)
+        public Carte (int p_valeur, Sorte p_sorte)
         {
-            this.Valeur = valeur;
-            this.Sorte = sorte;
+            this.Valeur = p_valeur;
+            this.Sorte = p_sorte;
         }
 
         public String GetNomRessource()
