@@ -53,14 +53,14 @@ namespace TP_BlackJack
         {
             this.PaquetCartes = CreerPaquetCartes();
             this.Joueurs = new List<Joueur>();
-            this.Dealer = new Dealer();
+            this.Dealer = dealer;
             BrasserCartes();
         }
 
+
+
         public void PigerUneCarteJoueur(Joueur joueur)
         {
-            if (joueur == null)
-                throw new ArgumentNullException("Le joueur ne peut pas être null");
             if (PaquetCartes.Count == 0)
                 throw new InvalidOperationException("Le paquet de cartes est vide");
             else if (PaquetCartes.Count > 0)
@@ -80,6 +80,7 @@ namespace TP_BlackJack
                 PaquetCartes.RemoveAt(0);
             }
         }
+
 
         public List<Carte> CreerPaquetCartes()
         {
