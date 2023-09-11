@@ -16,5 +16,20 @@ namespace TP_BlackJack
         {
             InitializeComponent();
         }
+
+        private void lblEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNom_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDateNaissance_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
