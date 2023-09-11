@@ -17,5 +17,10 @@ namespace TP_BlackJack
         {
 
         }
+
+        public void GenereMiseAleatoire()
+        {
+
+        }
     }
 }

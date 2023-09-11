@@ -29,12 +29,12 @@ namespace TP_BlackJack
             }
         }
         
-        public Dealer(int p_valeur, Sorte p_sorte) : base(valeur, sorte)
+        public Dealer(int p_valeur, Sorte p_sorte) : base(p_valeur, p_sorte)
         {
             this.Main = new List<Carte>();
         }
 
-        public override void Jouer()
+        public void Jouer()
         {
             while (this.ValeurMain < 17)
             {
