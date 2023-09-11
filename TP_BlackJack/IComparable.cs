@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_BlackJack
 {
-    internal interface IComparable
+    public interface IComparable
     {
     }
 }

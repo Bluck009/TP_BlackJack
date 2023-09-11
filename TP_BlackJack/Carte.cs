@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_BlackJack
 {
-    public class Carte
+    public class Carte : Joueur
     {
         private int valeur;
         private Sorte sorte;
@@ -14,19 +14,30 @@ namespace TP_BlackJack
         public int Valeur
         {
             get { return valeur; }
-            set { valeur = value; }
+            set 
+            {
+                if (value < 1 || value > 13)
+                    throw new ArgumentException("La valeur de la carte doit être comprise entre 1 et 13");
+
+                valeur = value; 
+            }
         }
 
         public Sorte Sorte
         {
             get { return sorte; }
-            set { sorte = value; }
+            set 
+            { 
+                if (value == null)
+                    throw new ArgumentNullException("La sorte de la carte ne peut pas être null");
+                
+                sorte = value; }
         }
 
-        public Carte (int p_valeur, Sorte p_sorte)
+        public Carte (int valeur, Sorte sorte)
         {
-            this.Valeur = p_valeur;
-            this.Sorte = p_sorte;
+            this.Valeur = valeur;
+            this.Sorte = sorte;
         }
 
         public String GetNomRessource()

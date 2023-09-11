@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_BlackJack
 {
-    public class Dealer
+    public class Dealer : Carte, IJouer
     {
         private bool plusQue21;
 
@@ -26,6 +26,19 @@ namespace TP_BlackJack
                 if (value == null)
                     throw new ArgumentNullException("La main du dealer ne peut pas être null");
                 main = value;
+            }
+        }
+        
+        public Dealer(int p_valeur, Sorte p_sorte) : base(valeur, sorte)
+        {
+            this.Main = new List<Carte>();
+        }
+
+        public override void Jouer()
+        {
+            while (this.ValeurMain < 17)
+            {
+                PigerUneCarte();
             }
         }
     }
