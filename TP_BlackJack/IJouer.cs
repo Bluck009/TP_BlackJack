@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_BlackJack
 {
-    public interface IJouer
+    public interface IJouer 
     {
         void Jouer();
     }
