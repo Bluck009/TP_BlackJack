@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_BlackJack
 {
-    public abstract class Joueur
+    public abstract class Joueur : IComparable
     {
         String nom;
         String email;
