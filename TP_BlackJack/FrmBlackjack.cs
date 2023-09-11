@@ -21,12 +21,12 @@ namespace TP_BlackJack
             get { return graphics; }
             set { graphics = value; }
         }
-        
+
         public FrmBlackjack()
         {
             InitializeComponent();
         }
 
-        
+
     }
 }
