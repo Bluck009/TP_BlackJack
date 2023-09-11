@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_BlackJack
 {
-    public abstract class Joueur 
+    public abstract class Joueur : IComparable<Joueur>
     {
         private String nom;
         private String email;
@@ -47,7 +47,7 @@ namespace TP_BlackJack
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException("No money, no play!");
+                    throw new ArgumentOutOfRangeException("Pas d'argent, pas de jeu !");
                 }
                 argent = value;
             }
@@ -66,23 +66,40 @@ namespace TP_BlackJack
         public int PositionTable
         {
             get { return positionTable; }
-            set { positionTable = value; }
+            set 
+            { 
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("La position à la table ne peut pas être négative");
+                }
+                positionTable = value; }
         }
 
         public List<Carte> Main
         {
             get { return main; }
-            set { main = value; }
+            set 
+            {   
+                if (value == null)
+                {
+                    throw new ArgumentNullException("La main ne peut pas être null");
+                }
+                main = value; }
         }
         public Joueur( String p_nom, String p_email)
         {
             this.Nom = p_nom;
             this.Email = p_email;
         }
-        public int CalculerNimbreDePoints()
+        public int CalculerNombreDePoints()
         {
             int nombrePoint = 0;
             return nombrePoint;
+        }
+
+        public void Doubler()
+        {
+
         }
 
         public virtual int CompareTo(Joueur p_joueur)
@@ -90,6 +107,11 @@ namespace TP_BlackJack
             int argentDiff = 0;
             return argentDiff;
         }
+
+        public override string ToString()
+        {
+            return "Joueur: " + this.Nom + " - " + this.Email;
+        }   
     }
 
 }
