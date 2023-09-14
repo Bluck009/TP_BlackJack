@@ -31,5 +31,15 @@ namespace TP_BlackJack
         {
 
         }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbNombreBots_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

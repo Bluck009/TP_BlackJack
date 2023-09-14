@@ -35,6 +35,10 @@ namespace TP_BlackJack
             txtNom = new System.Windows.Forms.TextBox();
             lblDateNaissance = new System.Windows.Forms.Label();
             txtDateNaissance = new System.Windows.Forms.TextBox();
+            btnAjouter = new System.Windows.Forms.Button();
+            lblNombreBots = new System.Windows.Forms.Label();
+            cmbNombreBots = new System.Windows.Forms.ComboBox();
+            btnCommencer = new System.Windows.Forms.Button();
             SuspendLayout();
             // 
             // lblEmail
@@ -88,11 +92,55 @@ namespace TP_BlackJack
             txtDateNaissance.TabIndex = 5;
             txtDateNaissance.TextChanged += txtDateNaissance_TextChanged;
             // 
+            // btnAjouter
+            // 
+            btnAjouter.Location = new System.Drawing.Point(640, 236);
+            btnAjouter.Name = "btnAjouter";
+            btnAjouter.Size = new System.Drawing.Size(94, 29);
+            btnAjouter.TabIndex = 6;
+            btnAjouter.Text = "Ajouter";
+            btnAjouter.UseVisualStyleBackColor = true;
+            btnAjouter.Click += btnAjouter_Click;
+            // 
+            // lblNombreBots
+            // 
+            lblNombreBots.AutoSize = true;
+            lblNombreBots.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblNombreBots.Location = new System.Drawing.Point(395, 324);
+            lblNombreBots.Name = "lblNombreBots";
+            lblNombreBots.Size = new System.Drawing.Size(179, 28);
+            lblNombreBots.TabIndex = 7;
+            lblNombreBots.Text = "Nombre de bot(s)";
+            // 
+            // cmbNombreBots
+            // 
+            cmbNombreBots.BackColor = System.Drawing.SystemColors.ScrollBar;
+            cmbNombreBots.FormattingEnabled = true;
+            cmbNombreBots.Location = new System.Drawing.Point(583, 328);
+            cmbNombreBots.Name = "cmbNombreBots";
+            cmbNombreBots.Size = new System.Drawing.Size(151, 28);
+            cmbNombreBots.TabIndex = 8;
+            cmbNombreBots.SelectedIndexChanged += cmbNombreBots_SelectedIndexChanged;
+            // 
+            // btnCommencer
+            // 
+            btnCommencer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnCommencer.Location = new System.Drawing.Point(395, 382);
+            btnCommencer.Name = "btnCommencer";
+            btnCommencer.Size = new System.Drawing.Size(339, 56);
+            btnCommencer.TabIndex = 9;
+            btnCommencer.Text = "Commencer la partie";
+            btnCommencer.UseVisualStyleBackColor = true;
+            // 
             // FrmAccueil
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(800, 450);
+            Controls.Add(btnCommencer);
+            Controls.Add(cmbNombreBots);
+            Controls.Add(lblNombreBots);
+            Controls.Add(btnAjouter);
             Controls.Add(txtDateNaissance);
             Controls.Add(lblDateNaissance);
             Controls.Add(txtNom);
@@ -113,5 +161,9 @@ namespace TP_BlackJack
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.Label lblDateNaissance;
         private System.Windows.Forms.TextBox txtDateNaissance;
+        private System.Windows.Forms.Button btnAjouter;
+        private System.Windows.Forms.Label lblNombreBots;
+        private System.Windows.Forms.ComboBox cmbNombreBots;
+        private System.Windows.Forms.Button btnCommencer;
     }
 }

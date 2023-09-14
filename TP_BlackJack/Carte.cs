@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_BlackJack
 {
-    public class Carte : Joueur
+    public class Carte : Joueur, Dea
     {
         private int valeur;
         private Sorte sorte;
