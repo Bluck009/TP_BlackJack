@@ -61,52 +61,45 @@ namespace TP_BlackJack
 
         public void PigerUneCarteJoueur(Joueur joueur)
         {
-            if (PaquetCartes.Count == 0)
-                throw new InvalidOperationException("Le paquet de cartes est vide");
-            else if (PaquetCartes.Count > 0)
-            {
-                joueur.AjouterCarte(PaquetCartes[0]);
-                PaquetCartes.RemoveAt(0);
-            }
+            Carte carte = PaquetCartes[0];
+            joueur.Main.Add(carte);
+            PaquetCartes.RemoveAt(0);
         }
 
         public void PigerUneCarteDealer()
         {
-            if (PaquetCartes.Count == 0)
-                throw new InvalidOperationException("Le paquet de cartes est vide");
-            else if (PaquetCartes.Count > 0)
-            {
-                Dealer.AjouterCarte(PaquetCartes[0]);
-                PaquetCartes.RemoveAt(0);
-            }
+            Carte carte = PaquetCartes[0];
+            Dealer.Main.Add(carte);
+            PaquetCartes.RemoveAt(0);
         }
-
 
         public List<Carte> CreerPaquetCartes()
         {
             List<Carte> paquetCartes = new List<Carte>();
-            foreach (Couleur couleur in Enum.GetValues(typeof(Couleur)))
+            foreach (Sorte sorte in Enum.GetValues(typeof(Sorte)))
             {
-                foreach (Valeur valeur in Enum.GetValues(typeof(Valeur)))
+                for (int i = 1; i <= 13; i++)
                 {
-                    paquetCartes.Add(new Carte(couleur, valeur));
+                    paquetCartes.Add(new Carte(i, sorte));
                 }
             }
             return paquetCartes;
         }
 
-        public void BrasserCartes()
+        //voir pour modifier si besoin avec les méthodes
+        //la classe utilitaire GenererSequence() et MelangerNombre()
+        public void BrasserCartes() 
         {
-            int carteBrassees = PaquetCartes.Count;
-            while (carteBrassees > 1)
+            List<Carte> paquetCartesBrasse = new List<Carte>();
+            while (PaquetCartes.Count > 0)
             {
-                carteBrassees--;
-                int carteAleatoire = rnd.Next(carteBrassees + 1);
-                Carte value = PaquetCartes[carteAleatoire];
-                PaquetCartes[carteAleatoire] = PaquetCartes[carteBrassees];
-                PaquetCartes[carteBrassees] = value;
+                int position = rnd.Next(0, PaquetCartes.Count);
+                paquetCartesBrasse.Add(PaquetCartes[position]);
+                PaquetCartes.RemoveAt(position);
             }
+            PaquetCartes = paquetCartesBrasse;
         }
+
 
         public void DistribuerLesCartes()
         {
@@ -142,19 +135,8 @@ namespace TP_BlackJack
 
         public void AjouterUnBotAleatoirement()
         {
-            int nombreAleatoire = rnd.Next(1, 4);
-            switch (nombreAleatoire)
-            {
-                case 1:
-                    Joueurs.Add(new Bot1());
-                    break;
-                case 2:
-                    Joueurs.Add(new Bot2());
-                    break;
-                case 3:
-                    Joueurs.Add(new Bot3());
-                    break;
-            }
+            int position = ObtenirUnePositionAleatoire();
+            Joueurs[position] = new Bot("Bot", "");
         }
 
         public int ObtenirUnePositionAleatoire()

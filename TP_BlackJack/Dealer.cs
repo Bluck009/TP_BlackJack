@@ -34,8 +34,9 @@ namespace TP_BlackJack
             this.Main = new List<Carte>();
         }
 
-        public void Jouer()
+        public virtual void Jouer()
         {
+            
         }
 
         public int CalculerNombreDePoints()

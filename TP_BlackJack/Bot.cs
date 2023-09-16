@@ -11,12 +11,20 @@ namespace TP_BlackJack
         public Bot(String p_nom, String p_email) : base(p_nom, p_email)
         {
             this.Argent = 5000;
-
         }
       
         public void Jouer()
         {
-
+            Random rnd = new Random();
+            int choix = rnd.Next(1, 3);
+            if (choix == 1)
+            {
+                this.GenereMiseAleatoire();
+            }
+            else
+            {
+                this.ValeurMisee = 0;
+            }
         }
 
         public void GenereMiseAleatoire()

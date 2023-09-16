@@ -42,7 +42,7 @@ namespace TP_BlackJack
 
         public String GetNomRessource()
         {
-            return "what";
+            return "";
         }
     }
 }

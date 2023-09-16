@@ -28,7 +28,7 @@ namespace TP_BlackJack
             }
         }
 
-        public string Email
+        public String Email
         {
             get { return email; }
             set
@@ -86,20 +86,26 @@ namespace TP_BlackJack
                 }
                 main = value; }
         }
+
         public Joueur( String p_nom, String p_email)
         {
             this.Nom = p_nom;
             this.Email = p_email;
         }
+
         public int CalculerNombreDePoints()
         {
-            int nombrePoint = 0;
-            return nombrePoint;
+            int nbPoints = 0;
+            foreach (Carte carte in Main)
+            {
+                nbPoints += carte.Valeur;
+            }
+            return nbPoints;
         }
 
         public void Doubler()
         {
-
+            this.ValeurMisee = this.ValeurMisee * 2;
         }
 
         public virtual int CompareTo(Joueur p_joueur)
@@ -110,7 +116,7 @@ namespace TP_BlackJack
 
         public override string ToString()
         {
-            return "Joueur: " + this.Nom + " - " + this.Email;
+            return $"{Nom} - {Email}";
         }   
     }
 
