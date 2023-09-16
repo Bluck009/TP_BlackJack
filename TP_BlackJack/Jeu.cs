@@ -57,8 +57,6 @@ namespace TP_BlackJack
             BrasserCartes();
         }
 
-
-
         public void PigerUneCarteJoueur(Joueur joueur)
         {
             Carte carte = PaquetCartes[0];
@@ -99,7 +97,6 @@ namespace TP_BlackJack
             }
             PaquetCartes = paquetCartesBrasse;
         }
-
 
         public void DistribuerLesCartes()
         {

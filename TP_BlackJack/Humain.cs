@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_BlackJack
 {
-    public class Humain
+    public class Humain : Joueur
     {
         private bool terminerJouer;
 
@@ -36,7 +36,7 @@ namespace TP_BlackJack
             }
         }
 
-        public Humain(String p_nom, String p_email, DateTime dateNaissance)
+        public Humain(String p_nom, String p_email, DateTime dateNaissance) : base(p_nom, p_email)
         {
             this.DateNaissance = dateNaissance;
         }

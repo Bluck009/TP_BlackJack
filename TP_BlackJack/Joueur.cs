@@ -108,11 +108,14 @@ namespace TP_BlackJack
             this.ValeurMisee = this.ValeurMisee * 2;
         }
 
+        //La comparaison des joueurs doit se faire selon leur argent
+        //afin de pouvoir éventuellement afficher les joueurs en ordre
+        //de montant d’argent.
         public virtual int CompareTo(Joueur p_joueur)
         {
-            int argentDiff = 0;
-            return argentDiff;
+            return this.Argent.CompareTo(p_joueur.Argent);
         }
+
 
         public override string ToString()
         {

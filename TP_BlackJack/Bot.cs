@@ -12,18 +12,12 @@ namespace TP_BlackJack
         {
             this.Argent = 5000;
         }
-      
-        public void Jouer()
+        
+        public void Jouer(Jeu jeu)
         {
-            Random rnd = new Random();
-            int choix = rnd.Next(1, 3);
-            if (choix == 1)
+            while (CalculerNombreDePoints() < 17)
             {
-                this.GenereMiseAleatoire();
-            }
-            else
-            {
-                this.ValeurMisee = 0;
+                jeu.PigerUneCarteJoueur(this);
             }
         }
 

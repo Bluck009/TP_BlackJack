@@ -34,14 +34,22 @@ namespace TP_BlackJack
             this.Main = new List<Carte>();
         }
 
-        public virtual void Jouer()
+        public void Jouer(Jeu jeu)
         {
-            
+            while (CalculerNombreDePoints() < 17)
+            {
+                jeu.PigerUneCarteDealer();
+            }
         }
 
         public int CalculerNombreDePoints()
         {
-            return 0;
+            int nombreDePoints = 0;
+            foreach (Carte carte in Main)
+            {
+                nombreDePoints += carte.Valeur;
+            }
+            return nombreDePoints;
         }
     }
 }
