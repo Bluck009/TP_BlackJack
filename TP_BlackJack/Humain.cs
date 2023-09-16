@@ -24,12 +24,19 @@ namespace TP_BlackJack
             set
             {
                 if (value == null)
+                {
                     throw new ArgumentNullException("La date de naissance ne peut pas être null");
+                }
+                if (DateTime.Now.Year - value.Year < 18 || 
+                    (DateTime.Now.Year - value.Year == 18 && DateTime.Now.DayOfYear < value.DayOfYear))
+                {
+                    throw new ArgumentOutOfRangeException("Le joueur doit avoir 18 ans ou plus.");
+                } 
                 dateNaissance = value;
             }
         }
 
-        public Humain(String name, String email, DateTime dateNaissance)
+        public Humain(String p_nom, String p_email, DateTime dateNaissance)
         {
             this.DateNaissance = dateNaissance;
         }

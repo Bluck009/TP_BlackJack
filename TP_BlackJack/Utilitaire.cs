@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Devices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
@@ -10,7 +12,7 @@ namespace TP_BlackJack
 {
     public class Utilitaire
     {
-        public static bool ValiderChaineObligatoire(String p_chaine)
+        public bool ValiderChaineObligatoire(String p_chaine)
         {
             bool chaineOk = true;
             if (String.IsNullOrWhiteSpace(p_chaine))
@@ -20,7 +22,7 @@ namespace TP_BlackJack
             return chaineOk;
         }
 
-        public static bool ValiderEmail(String p_email)
+        public bool ValiderEmail(String p_email)
         {
             try
             {
@@ -33,5 +35,29 @@ namespace TP_BlackJack
                 return false;
             }
         }
+
+        public int[] GenererSequence(int p_premiereValeur, int p_derniereValeur)
+        {
+            int[] tableauValeurs = new int[p_derniereValeur - p_premiereValeur + 1];
+            for (int i = 0; i < tableauValeurs.Length; i++)
+            {
+                tableauValeurs[i] = p_premiereValeur + i;
+            }
+            return tableauValeurs;
+        }
+
+        //public int[] MelangerNombre(int[] p_nombre)
+        //{
+        //    Random rnd = new Random();
+        //    for (int i = 0; i < p_nombre.Length - 1; i++)
+        //    {
+        //        int j = rnd.Next(i, p_nombre.Length);
+        //        int temp = p_nombre[i];
+        //        p_nombre[i] = p_nombre[j];
+        //        p_nombre[j] = temp;
+        //    }
+        //    return p_nombre;
+        //}
+
     }
 }
