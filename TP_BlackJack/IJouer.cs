@@ -8,6 +8,6 @@ namespace TP_BlackJack
 {
     public interface IJouer 
     {
-        void Jouer(Jeu jeu);
+        void Jouer();
     }
 }

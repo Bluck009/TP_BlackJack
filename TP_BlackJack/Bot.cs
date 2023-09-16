@@ -13,11 +13,11 @@ namespace TP_BlackJack
             this.Argent = 5000;
         }
         
-        public void Jouer(Jeu jeu)
+        public void Jouer()
         {
-            while (CalculerNombreDePoints() < 17)
+            while (this.CalculerNombreDePoints() < 17)
             {
-                jeu.PigerUneCarteJoueur(this);
+                Jeu.PigerUneCarteJoueur(this);
             }
         }
 

@@ -34,11 +34,11 @@ namespace TP_BlackJack
             this.Main = new List<Carte>();
         }
 
-        public void Jouer(Jeu jeu)
+        public void Jouer()
         {
             while (CalculerNombreDePoints() < 17)
             {
-                jeu.PigerUneCarteDealer();
+                Jeu.PigerUneCarteDealer();
             }
         }
 

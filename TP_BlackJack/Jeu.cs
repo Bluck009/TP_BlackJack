@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace TP_BlackJack
 {
-    public class Jeu
+    public static class Jeu
     {
-        private List<Carte> paquetCartes;
+        private static List<Carte> paquetCartes;
 
-        private List<Joueur> joueurs;
+        private static List<Joueur> joueurs;
 
-        private Dealer dealer;
+        private static Dealer dealer;
 
-        private Random rnd = new Random();
+        private static Random rnd = new Random();
 
-        public List<Carte> PaquetCartes
+        public static List<Carte> PaquetCartes
         {
             get { return paquetCartes; }
             set
@@ -27,7 +27,7 @@ namespace TP_BlackJack
             }
         }
 
-        public List<Joueur> Joueurs
+        public static List<Joueur> Joueurs
         {
             get { return joueurs; }
             set
@@ -38,7 +38,7 @@ namespace TP_BlackJack
             }
         }
 
-        public Dealer Dealer
+        public static Dealer Dealer
         {
             get { return dealer; }
             set
@@ -49,29 +49,30 @@ namespace TP_BlackJack
             }
         }
 
-        public Jeu()
+        static Jeu()
         {
-            this.PaquetCartes = CreerPaquetCartes();
-            this.Joueurs = new List<Joueur>();
-            this.Dealer = dealer;
+            PaquetCartes = CreerPaquetCartes();
+            Joueurs = new List<Joueur>();
+            Dealer = new Dealer(0, Sorte.Coeur);
             BrasserCartes();
+            DistribuerLesCartes();
         }
 
-        public void PigerUneCarteJoueur(Joueur joueur)
+        public static void PigerUneCarteJoueur(Joueur joueur)
         {
             Carte carte = PaquetCartes[0];
             joueur.Main.Add(carte);
             PaquetCartes.RemoveAt(0);
         }
 
-        public void PigerUneCarteDealer()
+        public static void PigerUneCarteDealer()
         {
             Carte carte = PaquetCartes[0];
             Dealer.Main.Add(carte);
             PaquetCartes.RemoveAt(0);
         }
 
-        public List<Carte> CreerPaquetCartes()
+        public static List<Carte> CreerPaquetCartes()
         {
             List<Carte> paquetCartes = new List<Carte>();
             foreach (Sorte sorte in Enum.GetValues(typeof(Sorte)))
@@ -86,7 +87,7 @@ namespace TP_BlackJack
 
         //voir pour modifier si besoin avec les méthodes
         //la classe utilitaire GenererSequence() et MelangerNombre()
-        public void BrasserCartes() 
+        public static void BrasserCartes()
         {
             List<Carte> paquetCartesBrasse = new List<Carte>();
             while (PaquetCartes.Count > 0)
@@ -98,7 +99,7 @@ namespace TP_BlackJack
             PaquetCartes = paquetCartesBrasse;
         }
 
-        public void DistribuerLesCartes()
+        public static void DistribuerLesCartes()
         {
             foreach (Joueur joueur in Joueurs)
             {
@@ -109,7 +110,7 @@ namespace TP_BlackJack
             PigerUneCarteDealer();
         }
 
-        public void RecommencerPartie()
+        public static void RecommencerPartie()
         {
             foreach (Joueur joueur in Joueurs)
             {
@@ -121,7 +122,7 @@ namespace TP_BlackJack
             DistribuerLesCartes();
         }
 
-        public void ReinitialiserLesMains()
+        public static void ReinitialiserLesMains()
         {
             foreach (Joueur joueur in Joueurs)
             {
@@ -130,18 +131,18 @@ namespace TP_BlackJack
             Dealer.Main.Clear();
         }
 
-        public void AjouterUnBotAleatoirement()
+        public static void AjouterUnBotAleatoirement()
         {
             int position = ObtenirUnePositionAleatoire();
             Joueurs[position] = new Bot("Bot", "");
         }
 
-        public int ObtenirUnePositionAleatoire()
+        public static int ObtenirUnePositionAleatoire()
         {
             return rnd.Next(0, Joueurs.Count);
         }
 
-        public List<int> ObtenirPositionsLibres()
+        public static List<int> ObtenirPositionsLibres()
         {
             List<int> positionsLibres = new List<int>();
             for (int i = 0; i < Joueurs.Count; i++)
