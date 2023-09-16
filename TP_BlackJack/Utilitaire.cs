@@ -10,9 +10,9 @@ using System.Windows.Forms.VisualStyles;
 
 namespace TP_BlackJack
 {
-    public class Utilitaire
+    public static class Utilitaire
     {
-        public bool ValiderChaineObligatoire(String p_chaine)
+        public static bool ValiderChaineObligatoire(String p_chaine)
         {
             bool chaineOk = true;
             if (String.IsNullOrWhiteSpace(p_chaine))
@@ -22,7 +22,7 @@ namespace TP_BlackJack
             return chaineOk;
         }
 
-        public bool ValiderEmail(String p_email)
+        public static bool ValiderEmail(String p_email)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace TP_BlackJack
             }
         }
 
-        public int[] GenererSequence(int p_premiereValeur, int p_derniereValeur)
+        public static int[] GenererSequence(int p_premiereValeur, int p_derniereValeur)
         {
             int[] tableauValeurs = new int[p_derniereValeur - p_premiereValeur + 1];
             for (int i = 0; i < tableauValeurs.Length; i++)
@@ -46,7 +46,7 @@ namespace TP_BlackJack
             return tableauValeurs;
         }
 
-        //public int[] MelangerNombre(int[] p_nombre)
+        //public static int[] MelangerNombre(int[] p_nombre)
         //{
         //    Random rnd = new Random();
         //    for (int i = 0; i < p_nombre.Length - 1; i++)
