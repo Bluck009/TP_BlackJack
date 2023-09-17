@@ -44,10 +44,11 @@ namespace TP_BlackJack
             lblLesJoueurs = new System.Windows.Forms.Label();
             lblListeJoueurs = new System.Windows.Forms.Label();
             lblAjoutJoueur = new System.Windows.Forms.Label();
-            txtListeJoueurs = new System.Windows.Forms.TextBox();
             txtErrorMessage = new System.Windows.Forms.TextBox();
             txtBotErrMsg = new System.Windows.Forms.TextBox();
             txtMsgErrAjouterJoueur = new System.Windows.Forms.TextBox();
+            txtListeJoueur = new System.Windows.Forms.RichTextBox();
+            txtJoueruChoisi = new System.Windows.Forms.TextBox();
             SuspendLayout();
             // 
             // lblEmail
@@ -187,14 +188,6 @@ namespace TP_BlackJack
             lblAjoutJoueur.TabIndex = 14;
             lblAjoutJoueur.Text = "Ajouter un nouveau joueur";
             // 
-            // txtListeJoueurs
-            // 
-            txtListeJoueurs.Location = new System.Drawing.Point(56, 255);
-            txtListeJoueurs.Multiline = true;
-            txtListeJoueurs.Name = "txtListeJoueurs";
-            txtListeJoueurs.Size = new System.Drawing.Size(280, 174);
-            txtListeJoueurs.TabIndex = 15;
-            // 
             // txtErrorMessage
             // 
             txtErrorMessage.BackColor = System.Drawing.SystemColors.Control;
@@ -232,15 +225,32 @@ namespace TP_BlackJack
             txtMsgErrAjouterJoueur.Size = new System.Drawing.Size(335, 27);
             txtMsgErrAjouterJoueur.TabIndex = 18;
             // 
+            // txtListeJoueur
+            // 
+            txtListeJoueur.Location = new System.Drawing.Point(56, 267);
+            txtListeJoueur.Name = "txtListeJoueur";
+            txtListeJoueur.Size = new System.Drawing.Size(253, 189);
+            txtListeJoueur.TabIndex = 19;
+            txtListeJoueur.Text = "";
+            txtListeJoueur.MouseClick += txtListeJoueur_MouseClick;
+            // 
+            // txtJoueruChoisi
+            // 
+            txtJoueruChoisi.Location = new System.Drawing.Point(78, 509);
+            txtJoueruChoisi.Name = "txtJoueruChoisi";
+            txtJoueruChoisi.Size = new System.Drawing.Size(175, 27);
+            txtJoueruChoisi.TabIndex = 20;
+            // 
             // FrmAccueil
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(800, 587);
+            Controls.Add(txtJoueruChoisi);
+            Controls.Add(txtListeJoueur);
             Controls.Add(txtMsgErrAjouterJoueur);
             Controls.Add(txtBotErrMsg);
             Controls.Add(txtErrorMessage);
-            Controls.Add(txtListeJoueurs);
             Controls.Add(lblAjoutJoueur);
             Controls.Add(lblListeJoueurs);
             Controls.Add(lblLesJoueurs);
@@ -280,9 +290,10 @@ namespace TP_BlackJack
         private System.Windows.Forms.Label lblLesJoueurs;
         private System.Windows.Forms.Label lblListeJoueurs;
         private System.Windows.Forms.Label lblAjoutJoueur;
-        private System.Windows.Forms.TextBox txtListeJoueurs;
         private System.Windows.Forms.TextBox txtErrorMessage;
         private System.Windows.Forms.TextBox txtBotErrMsg;
         private System.Windows.Forms.TextBox txtMsgErrAjouterJoueur;
+        private System.Windows.Forms.RichTextBox txtListeJoueur;
+        private System.Windows.Forms.TextBox txtJoueruChoisi;
     }
 }
