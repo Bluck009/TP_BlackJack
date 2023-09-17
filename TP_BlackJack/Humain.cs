@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_BlackJack
 {
-    public class Humain
+    public class Humain : Joueur
     {
         private bool terminerJouer;
 
@@ -23,13 +23,14 @@ namespace TP_BlackJack
             get { return dateNaissance; }
             set
             {
-                if (value == null)
-                    throw new ArgumentNullException("La date de naissance ne peut pas être null");
-                dateNaissance = value;
+                //if (value is not null)
+                    dateNaissance = value;
+                //else
+                    //throw new ArgumentNullException("La date de naissance ne peut pas être null");
             }
         }
 
-        public Humain(String name, String email, DateTime dateNaissance)
+        public Humain(String name, String email, DateTime dateNaissance) : base (name, email)
         {
             this.DateNaissance = dateNaissance;
         }

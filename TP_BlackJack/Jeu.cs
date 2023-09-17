@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace TP_BlackJack
 {
-    public class Jeu
+    public static class Jeu
     {
-        private List<Carte> paquetCartes;
+        private static List<Carte> paquetCartes;
 
-        private List<Joueur> joueurs;
+        private static List<Joueur> joueurs;
 
-        private Dealer dealer;
+        private static Dealer dealer;
 
-        private Random rnd = new Random();
+        private static Random rnd = new Random();
 
-        public List<Carte> PaquetCartes
+        public static List<Carte> PaquetCartes
         {
             get { return paquetCartes; }
             set
@@ -27,7 +27,7 @@ namespace TP_BlackJack
             }
         }
 
-        public List<Joueur> Joueurs
+        public static List<Joueur> Joueurs
         {
             get { return joueurs; }
             set
@@ -38,7 +38,7 @@ namespace TP_BlackJack
             }
         }
 
-        public Dealer Dealer
+        public static Dealer Dealer
         {
             get { return dealer; }
             set
@@ -49,66 +49,81 @@ namespace TP_BlackJack
             }
         }
 
-        public Jeu()
+        static Jeu()
         {
-            this.PaquetCartes = CreerPaquetCartes();
-            this.Joueurs = new List<Joueur>();
-            this.Dealer = dealer;
+            PaquetCartes = CreerPaquetCartes();
+            List<Carte>paquetCartes2 = CreerPaquetCartes();
+            PaquetCartes.AddRange(paquetCartes2);
+            Joueurs = new List<Joueur>();
+            Joueurs.Sort();
+            Dealer = dealer;
             BrasserCartes();
         }
 
 
 
-        public void PigerUneCarteJoueur(Joueur joueur)
+        public static void PigerUneCarteJoueur(Joueur joueur)
         {
             if (PaquetCartes.Count == 0)
                 throw new InvalidOperationException("Le paquet de cartes est vide");
             else if (PaquetCartes.Count > 0)
             {
-                joueur.AjouterCarte(PaquetCartes[0]);
+                //Joueur.AjouterCarte(PaquetCartes[0]);
                 PaquetCartes.RemoveAt(0);
             }
         }
 
-        public void PigerUneCarteDealer()
+        public static void PigerUneCarteDealer()
         {
             if (PaquetCartes.Count == 0)
                 throw new InvalidOperationException("Le paquet de cartes est vide");
             else if (PaquetCartes.Count > 0)
             {
-                Dealer.AjouterCarte(PaquetCartes[0]);
+                //Dealer.AjouterCarte(PaquetCartes[0]);
                 PaquetCartes.RemoveAt(0);
             }
         }
 
 
-        public List<Carte> CreerPaquetCartes()
+        public static List<Carte> CreerPaquetCartes()
         {
             List<Carte> paquetCartes = new List<Carte>();
-            foreach (Couleur couleur in Enum.GetValues(typeof(Couleur)))
+            foreach (Sorte sorte in Enum.GetValues(typeof(Sorte)))
             {
-                foreach (Valeur valeur in Enum.GetValues(typeof(Valeur)))
+                for (int valeurCarte = 1; valeurCarte <= 13; valeurCarte++ )
                 {
-                    paquetCartes.Add(new Carte(couleur, valeur));
+                    paquetCartes.Add(new Carte(valeurCarte, sorte));
                 }
             }
             return paquetCartes;
         }
 
-        public void BrasserCartes()
+
+
+        public static void BrasserCartes()
         {
-            int carteBrassees = PaquetCartes.Count;
-            while (carteBrassees > 1)
+            Random random = new Random();
+            for (int positionEnCours = 0; positionEnCours < PaquetCartes.Count - 1; positionEnCours++)
             {
-                carteBrassees--;
-                int carteAleatoire = rnd.Next(carteBrassees + 1);
-                Carte value = PaquetCartes[carteAleatoire];
-                PaquetCartes[carteAleatoire] = PaquetCartes[carteBrassees];
-                PaquetCartes[carteBrassees] = value;
+                int nouvellePosition = random.Next(positionEnCours, PaquetCartes.Count);
+                Carte carteEnCours = PaquetCartes[positionEnCours];
+                PaquetCartes[positionEnCours] = PaquetCartes[nouvellePosition];
+                PaquetCartes[nouvellePosition] = carteEnCours;
             }
         }
+        //int carteBrassees = PaquetCartes.Count;
+        //while (carteBrassees > 1)
+        //{
+        //    carteBrassees--;
+        //    int carteAleatoire = rnd.Next(carteBrassees + 1);
+        //    Carte value = PaquetCartes[carteAleatoire];
+        //    PaquetCartes[carteAleatoire] = PaquetCartes[carteBrassees];
+        //    PaquetCartes[carteBrassees] = value;
 
-        public void DistribuerLesCartes()
+        //}
+    
+
+        public static void DistribuerLesCartes()
         {
             foreach (Joueur joueur in Joueurs)
             {
@@ -119,7 +134,7 @@ namespace TP_BlackJack
             PigerUneCarteDealer();
         }
 
-        public void RecommencerPartie()
+        public static void RecommencerPartie()
         {
             foreach (Joueur joueur in Joueurs)
             {
@@ -131,7 +146,7 @@ namespace TP_BlackJack
             DistribuerLesCartes();
         }
 
-        public void ReinitialiserLesMains()
+        public static void ReinitialiserLesMains()
         {
             foreach (Joueur joueur in Joueurs)
             {
@@ -140,29 +155,29 @@ namespace TP_BlackJack
             Dealer.Main.Clear();
         }
 
-        public void AjouterUnBotAleatoirement()
+        public static void AjouterUnBotAleatoirement()
         {
             int nombreAleatoire = rnd.Next(1, 4);
             switch (nombreAleatoire)
             {
                 case 1:
-                    Joueurs.Add(new Bot1());
+                    //Joueurs.Add(new Bot1());
                     break;
                 case 2:
-                    Joueurs.Add(new Bot2());
+                    //Joueurs.Add(new Bot2());
                     break;
                 case 3:
-                    Joueurs.Add(new Bot3());
+                    //Joueurs.Add(new Bot3());
                     break;
             }
         }
 
-        public int ObtenirUnePositionAleatoire()
+        public static int ObtenirUnePositionAleatoire()
         {
             return rnd.Next(0, Joueurs.Count);
         }
 
-        public List<int> ObtenirPositionsLibres()
+        public static List<int> ObtenirPositionsLibres()
         {
             List<int> positionsLibres = new List<int>();
             for (int i = 0; i < Joueurs.Count; i++)

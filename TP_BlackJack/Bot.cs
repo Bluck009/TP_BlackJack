@@ -9,8 +9,7 @@ namespace TP_BlackJack
     public class Bot : Joueur, IJouer
     {
         public Bot(String p_nom, String p_email) : base(p_nom, p_email)
-        {
-            this.Argent = 5000;
+        { 
 
         }
       
@@ -21,9 +20,11 @@ namespace TP_BlackJack
 
         public void GenereMiseAleatoire()
         {
+            
             Random rnd = new Random();
-            int mise = rnd.Next(10, this.Argent);
+            int mise = rnd.Next(1, 10); // retirer cash apres avoir perdu
             this.ValeurMisee = mise;
+            
         }
     }
 }

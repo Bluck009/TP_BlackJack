@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
 namespace TP_BlackJack
@@ -28,7 +29,7 @@ namespace TP_BlackJack
 
                 return true;
             }
-            catch (FormatException)
+            catch (Exception)
             {
                 return false;
             }

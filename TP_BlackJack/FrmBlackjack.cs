@@ -27,6 +27,9 @@ namespace TP_BlackJack
             InitializeComponent();
         }
 
+        private void pbBlackjack_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
