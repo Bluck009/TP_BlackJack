@@ -42,7 +42,7 @@ namespace TP_BlackJack
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            DateTime date = DateTime.Now;
+            DateTime date = DateTime.Now; // doit ajouter validation de date
             date = date.AddYears(-18);
             if (Utilitaire.ValiderEmail(txtEmail.Text) && Utilitaire.ValiderChaineObligatoire(txtNom.Text))
             {
@@ -57,24 +57,61 @@ namespace TP_BlackJack
         }
         private void btnCommencer_Click(object sender, EventArgs e)
         {
-            bool ok = false;
+            int countDown = 4;
+
             if (Utilitaire.ValiderChaineObligatoire(cmbNombreBots.Text))
             {
                 txtBotErrMsg.Text = String.Empty;
-                ok = true;
-                return;
+                countDown--;
             }
-            txtBotErrMsg.Text = "Vous devez choisir le nombre de bot(s). ";
-            if (Utilitaire.ValiderChaineObligatoire(txtListeJoueur.Text))
+            else
+            {
+                txtBotErrMsg.Text = "Vous devez choisir le nombre de bot(s). ";
+            }
+            if (cmbNombreBots.Text != "")
+            {
+                if (this.TousLesJoueurs.Count > int.Parse(cmbNombreBots.Text))
+                {
+                    txtMsgErrAjouterJoueur.Text = String.Empty;
+                    countDown--;
+                }
+                else
+                {
+                    txtMsgErrAjouterJoueur.Text = "Vous devez céer plus de joueurs! ";
+                }
+            }
+            if (this.TousLesJoueurs.Count != 0)
             {
                 txtMsgErrAjouterJoueur.Text = String.Empty;
-                return;
+                countDown--;
             }
-            if (ok && txtListeJoueur.Text.Count() >= cmbNombreBots.Text.Count())
+            else
             {
-
+                txtMsgErrAjouterJoueur.Text = "Vous devez céer au moins un joueurs! ";
             }
-            txtMsgErrAjouterJoueur.Text = "Vous devez céer plus de joueurs! ";
+
+            if (this.JoueursChoisis.Count != 0)
+            {
+                txtMsgErrChoisirJoueur.Text = String.Empty;
+                countDown--;
+            }
+            else
+            {
+                txtMsgErrChoisirJoueur.Text = "Vous devez choisir un joueur. ";
+            }
+
+            if(countDown == 0) { 
+            //Random random = new Random();
+            int nbBotToAdd = int.Parse(cmbNombreBots.Text);
+            for (int bot = 1; bot <= nbBotToAdd; bot++)
+                {
+                    this.JoueursChoisis.Add(this.TousLesJoueurs[bot]); // reste random a faire
+                }                  
+ 
+                FrmBlackjack black = new FrmBlackjack();
+                black.ShowDialog();
+            }
+
         }
         private void FrmAccueil_Load(object sender, EventArgs e)
         {
@@ -82,9 +119,6 @@ namespace TP_BlackJack
             {
                 cmbNombreBots.Items.Add(nbBot.ToString());
             }
-
-            //FrmBlackjack black = new FrmBlackjack();
-            //black.ShowDialog();
         }
 
         private void txtListeJoueur_MouseClick(object sender, MouseEventArgs e)
@@ -96,8 +130,15 @@ namespace TP_BlackJack
                 txtListeJoueur.SelectionStart = txtListeJoueur.Text[line];
                 txtListeJoueur.SelectionLength = txtListeJoueur.Text[line];
                 Joueur joueurSelection = this.TousLesJoueurs[line];
-                this.JoueursChoisis.Add(joueurSelection);
-                txtJoueruChoisi.Text = this.JoueursChoisis[0].Nom;
+                if (this.joueursChoisis.Count != 0)
+                {
+                    this.joueursChoisis[0] = joueurSelection;
+                }
+                else
+                {
+                    this.JoueursChoisis.Add(joueurSelection);
+                }
+                txtJoueruChoisi.Text = this.JoueursChoisis[0].Nom; // juste pour valider
             }
         }
 

@@ -49,6 +49,7 @@ namespace TP_BlackJack
             txtMsgErrAjouterJoueur = new System.Windows.Forms.TextBox();
             txtListeJoueur = new System.Windows.Forms.RichTextBox();
             txtJoueruChoisi = new System.Windows.Forms.TextBox();
+            txtMsgErrChoisirJoueur = new System.Windows.Forms.TextBox();
             SuspendLayout();
             // 
             // lblEmail
@@ -241,11 +242,25 @@ namespace TP_BlackJack
             txtJoueruChoisi.Size = new System.Drawing.Size(175, 27);
             txtJoueruChoisi.TabIndex = 20;
             // 
+            // txtMsgErrChoisirJoueur
+            // 
+            txtMsgErrChoisirJoueur.BackColor = System.Drawing.SystemColors.Control;
+            txtMsgErrChoisirJoueur.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtMsgErrChoisirJoueur.ForeColor = System.Drawing.Color.DarkRed;
+            txtMsgErrChoisirJoueur.ImeMode = System.Windows.Forms.ImeMode.Off;
+            txtMsgErrChoisirJoueur.Location = new System.Drawing.Point(54, 183);
+            txtMsgErrChoisirJoueur.Multiline = true;
+            txtMsgErrChoisirJoueur.Name = "txtMsgErrChoisirJoueur";
+            txtMsgErrChoisirJoueur.ReadOnly = true;
+            txtMsgErrChoisirJoueur.Size = new System.Drawing.Size(255, 27);
+            txtMsgErrChoisirJoueur.TabIndex = 21;
+            // 
             // FrmAccueil
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(800, 587);
+            Controls.Add(txtMsgErrChoisirJoueur);
             Controls.Add(txtJoueruChoisi);
             Controls.Add(txtListeJoueur);
             Controls.Add(txtMsgErrAjouterJoueur);
@@ -295,5 +310,6 @@ namespace TP_BlackJack
         private System.Windows.Forms.TextBox txtMsgErrAjouterJoueur;
         private System.Windows.Forms.RichTextBox txtListeJoueur;
         private System.Windows.Forms.TextBox txtJoueruChoisi;
+        private System.Windows.Forms.TextBox txtMsgErrChoisirJoueur;
     }
 }
