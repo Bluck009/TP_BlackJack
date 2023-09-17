@@ -15,16 +15,18 @@ namespace TP_BlackJack
         
         public void Jouer()
         {
-            while (this.CalculerNombreDePoints() < 17)
-            {
-                Jeu.PigerUneCarteJoueur(this);
-            }
+            //while (this.CalculerNombreDePoints() < 17)
+            //{
+            //    Jeu.PigerUneCarteJoueur(this);
+            //}
         }
 
         public void GenereMiseAleatoire()
         {
             Random rnd = new Random();
             int mise = rnd.Next(10, this.Argent);
+// NE PAS OUBLIÉ -- l'argent doit être retiré une fois la partie perdue
+// this.Argent -= mise;
             this.ValeurMisee = mise;
         }
     }

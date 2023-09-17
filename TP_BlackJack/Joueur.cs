@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +10,7 @@ namespace TP_BlackJack
 {
     public abstract class Joueur : IComparable<Joueur>
     {
+        private const int MONTANT_INITIAL = 100;
         private String nom;
         private String email;
         private int argent;
@@ -22,7 +25,7 @@ namespace TP_BlackJack
             {
                 if (String.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Le nom ne peut pas être vide, nulle ou contenir des espaces");
+                    throw new ArgumentException("Le nom ne peut pas être vide, nul ou contenir des espaces");
                 }
                 nom = value;
             }
@@ -55,7 +58,8 @@ namespace TP_BlackJack
         public int ValeurMisee
         {
             get { return valeurMisee; }
-            set {
+            set
+            {
                 if (value < 0)
                 {
                     throw new ArgumentOutOfRangeException("La mise ne peut pas être négative");
@@ -66,41 +70,62 @@ namespace TP_BlackJack
         public int PositionTable
         {
             get { return positionTable; }
-            set 
-            { 
+            set
+            {
                 if (value < 0)
                 {
                     throw new ArgumentOutOfRangeException("La position à la table ne peut pas être négative");
                 }
-                positionTable = value; }
+                positionTable = value;
+            }
         }
 
         public List<Carte> Main
         {
             get { return main; }
-            set 
-            {   
+            set
+            {
                 if (value == null)
                 {
                     throw new ArgumentNullException("La main ne peut pas être null");
                 }
-                main = value; }
+                main = value;
+            }
         }
 
-        public Joueur( String p_nom, String p_email)
+        public Joueur(String p_nom, String p_email)
         {
             this.Nom = p_nom;
             this.Email = p_email;
+            this.Argent = MONTANT_INITIAL;
         }
 
         public int CalculerNombreDePoints()
         {
-            int nbPoints = 0;
-            foreach (Carte carte in Main)
+            int nbPoint = 0;
+            bool asPresent = false;
+
+            foreach (Carte carte in main)
             {
-                nbPoints += carte.Valeur;
+                if (carte.Valeur == 1)
+                {
+                    asPresent = true;
+                }
+
+                if (carte.Valeur > 10)
+                {
+                    carte.Valeur = 10;
+                }
+
+                nbPoint += carte.Valeur;
             }
-            return nbPoints;
+
+            if (asPresent && nbPoint <= 11)
+            {
+                nbPoint += 10;
+            }
+
+            return nbPoint;
         }
 
         public void Doubler()
@@ -108,19 +133,64 @@ namespace TP_BlackJack
             this.ValeurMisee = this.ValeurMisee * 2;
         }
 
-        //La comparaison des joueurs doit se faire selon leur argent
-        //afin de pouvoir éventuellement afficher les joueurs en ordre
-        //de montant d’argent.
         public virtual int CompareTo(Joueur p_joueur)
         {
             return this.Argent.CompareTo(p_joueur.Argent);
         }
 
-
         public override string ToString()
         {
-            return $"{Nom} - {Email}";
-        }   
+            return this.Nom;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var joueur2 = obj as Joueur;
+            if (joueur2 is not null && this.argent == joueur2.argent)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool operator ==(Joueur left, Joueur right)
+        {
+            if (ReferenceEquals(left, null))
+            {
+                return ReferenceEquals(right, null);
+            }
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Joueur left, Joueur right)
+        {
+            return !(left == right);
+        }
+
+        public static bool operator <(Joueur left, Joueur right)
+        {
+            return ReferenceEquals(left, null) ? !ReferenceEquals(right, null) : left.CompareTo(right) < 0;
+        }
+
+        public static bool operator <=(Joueur left, Joueur right)
+        {
+            return ReferenceEquals(left, null) || left.CompareTo(right) <= 0;
+        }
+
+        public static bool operator >(Joueur left, Joueur right)
+        {
+            return !ReferenceEquals(left, null) && left.CompareTo(right) > 0;
+        }
+
+        public static bool operator >=(Joueur left, Joueur right)
+        {
+            return ReferenceEquals(left, null) ? ReferenceEquals(right, null) : left.CompareTo(right) >= 0;
+        }
     }
 
 }

@@ -42,7 +42,47 @@ namespace TP_BlackJack
 
         public String GetNomRessource()
         {
-            return "";
+            String nomRessource = "";
+
+            //switch (this.Valeur)
+            //{
+            //    case 1:
+            //        nomRessource += "As";
+            //        break;
+            //    case 11:
+            //        nomRessource += "Valet";
+            //        break;
+            //    case 12:
+            //        nomRessource += "Dame";
+            //        break;
+            //    case 13:
+            //        nomRessource += "Roi";
+            //        break;
+            //    default:
+            //        nomRessource += this.Valeur;
+            //        break;
+            //}
+
+            //nomRessource += "_";
+
+            //switch (this.Sorte)
+            //{
+            //    case Sorte.Coeur:
+            //        nomRessource += "Coeur";
+            //        break;
+            //    case Sorte.Carreau:
+            //        nomRessource += "Carreau";
+            //        break;
+            //    case Sorte.Pique:
+            //        nomRessource += "Pique";
+            //        break;
+            //    case Sorte.Trefle:
+            //        nomRessource += "Trefle";
+            //        break;
+            //}
+
+            return nomRessource;
         }
+
     }
 }
