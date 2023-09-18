@@ -23,10 +23,17 @@ namespace TP_BlackJack
             get { return nom; }
             set
             {
+<<<<<<< HEAD
                 if (String.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("Le nom ne peut pas être vide, nul ou contenir des espaces");
                 }
+=======
+                //if (String.IsNullOrWhiteSpace(value))
+                //{
+                //    throw new ArgumentException("Le nom ne peut pas être vide, nulle ou contenir des espaces");
+                //}
+>>>>>>> luc
                 nom = value;
             }
         }
@@ -36,10 +43,10 @@ namespace TP_BlackJack
             get { return email; }
             set
             {
-                if (String.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentException("Le courriel ne peut pas être vide, nulle ou contenir des espaces");
-                }
+                //if (String.IsNullOrWhiteSpace(value))
+                //{
+                //    throw new ArgumentException("Le courriel ne peut pas être vide, nulle ou contenir des espaces");
+                //}
                 email = value;
             }
         }
@@ -48,28 +55,37 @@ namespace TP_BlackJack
             get { return argent; }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Pas d'argent, pas de jeu !");
-                }
+                //if (value < 0)
+                //{
+                //    throw new ArgumentOutOfRangeException("Pas d'argent, pas de jeu !");
+                //}
                 argent = value;
             }
         }
         public int ValeurMisee
         {
             get { return valeurMisee; }
+<<<<<<< HEAD
             set
             {
                 if (value < 0)
                 {
                     throw new ArgumentOutOfRangeException("La mise ne peut pas être négative");
                 }
+=======
+            set {
+                //if (value < 0)
+                //{
+                //    throw new ArgumentOutOfRangeException("La mise ne peut pas être négative");
+                //}
+>>>>>>> luc
                 valeurMisee = value;
             }
         }
         public int PositionTable
         {
             get { return positionTable; }
+<<<<<<< HEAD
             set
             {
                 if (value < 0)
@@ -78,11 +94,21 @@ namespace TP_BlackJack
                 }
                 positionTable = value;
             }
+=======
+            set 
+            { 
+                //if (value < 0)
+                //{
+                //    throw new ArgumentOutOfRangeException("La position à la table ne peut pas être négative");
+                //}
+                positionTable = value; }
+>>>>>>> luc
         }
 
         public List<Carte> Main
         {
             get { return main; }
+<<<<<<< HEAD
             set
             {
                 if (value == null)
@@ -91,6 +117,15 @@ namespace TP_BlackJack
                 }
                 main = value;
             }
+=======
+            set 
+            {   
+                //if (value == null)
+                //{
+                //    throw new ArgumentNullException("La main ne peut pas être null");
+                //}
+                main = value; }
+>>>>>>> luc
         }
 
         public Joueur(String p_nom, String p_email)
@@ -102,12 +137,21 @@ namespace TP_BlackJack
 
         public int CalculerNombreDePoints()
         {
+<<<<<<< HEAD
             int nbPoint = 0;
             bool asPresent = false;
 
             foreach (Carte carte in main)
             {
                 if (carte.Valeur == 1)
+=======
+            int nombrePoint = 0;
+            bool asPresent = false;
+
+            foreach(Carte carte in main)
+            {
+                if(carte.Valeur == 1)
+>>>>>>> luc
                 {
                     asPresent = true;
                 }
@@ -117,6 +161,7 @@ namespace TP_BlackJack
                     carte.Valeur = 10;
                 }
 
+<<<<<<< HEAD
                 nbPoint += carte.Valeur;
             }
 
@@ -126,11 +171,26 @@ namespace TP_BlackJack
             }
 
             return nbPoint;
+=======
+                nombrePoint += carte.Valeur;
+            }
+
+            if(asPresent && nombrePoint <= 11)
+            {
+                nombrePoint += 10;
+            }
+            
+            return nombrePoint;
+>>>>>>> luc
         }
 
         public void Doubler()
         {
+<<<<<<< HEAD
             this.ValeurMisee = this.ValeurMisee * 2;
+=======
+            valeurMisee *= 2;             
+>>>>>>> luc
         }
 
         public virtual int CompareTo(Joueur p_joueur)

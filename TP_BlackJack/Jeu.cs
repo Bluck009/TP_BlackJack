@@ -52,7 +52,11 @@ namespace TP_BlackJack
         static Jeu()
         {
             PaquetCartes = CreerPaquetCartes();
+<<<<<<< HEAD
             List<Carte> paquetCartes2 = CreerPaquetCartes();
+=======
+            List<Carte>paquetCartes2 = CreerPaquetCartes();
+>>>>>>> luc
             PaquetCartes.AddRange(paquetCartes2);
             Joueurs = new List<Joueur>();
             Joueurs.Sort();
@@ -61,11 +65,21 @@ namespace TP_BlackJack
             DistribuerLesCartes();
         }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> luc
         public static void PigerUneCarteJoueur(Joueur joueur)
         {
             if (PaquetCartes.Count == 0)
             {
+<<<<<<< HEAD
                 throw new InvalidOperationException("Le paquet de cartes est vide");
+=======
+                //Joueur.AjouterCarte(PaquetCartes[0]);
+                PaquetCartes.RemoveAt(0);
+>>>>>>> luc
             }
             Carte carte = PaquetCartes[0];
             joueur.Main.Add(carte);
@@ -76,19 +90,32 @@ namespace TP_BlackJack
         {
             if (PaquetCartes.Count == 0)
             {
+<<<<<<< HEAD
                 throw new InvalidOperationException("Le paquet de cartes est vide");
+=======
+                //Dealer.AjouterCarte(PaquetCartes[0]);
+                PaquetCartes.RemoveAt(0);
+>>>>>>> luc
             }
             Carte carte = PaquetCartes[0];
             Dealer.Main.Add(carte);
             PaquetCartes.RemoveAt(0);
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> luc
         public static List<Carte> CreerPaquetCartes()
         {
             List<Carte> paquetCartes = new List<Carte>();
             foreach (Sorte sorte in Enum.GetValues(typeof(Sorte)))
             {
+<<<<<<< HEAD
                 for (int valeurCarte = 1; valeurCarte <= 13; valeurCarte++)
+=======
+                for (int valeurCarte = 1; valeurCarte <= 13; valeurCarte++ )
+>>>>>>> luc
                 {
                     paquetCartes.Add(new Carte(valeurCarte, sorte));
                 }
@@ -96,6 +123,7 @@ namespace TP_BlackJack
             return paquetCartes;
         }
 
+<<<<<<< HEAD
         //voir pour modifier si besoin avec les méthodes
         //la classe utilitaire GenererSequence() et MelangerNombre()
         public static void BrasserCartes()
@@ -107,9 +135,36 @@ namespace TP_BlackJack
                 Carte carte = PaquetCartes[positionPresente];
                 PaquetCartes[positionPresente] = PaquetCartes[nouvellePosition];
                 PaquetCartes[nouvellePosition] = carte;
+=======
+
+
+        public static void BrasserCartes()
+        {
+            Random random = new Random();
+            for (int positionEnCours = 0; positionEnCours < PaquetCartes.Count - 1; positionEnCours++)
+            {
+                int nouvellePosition = random.Next(positionEnCours, PaquetCartes.Count);
+                Carte carteEnCours = PaquetCartes[positionEnCours];
+                PaquetCartes[positionEnCours] = PaquetCartes[nouvellePosition];
+                PaquetCartes[nouvellePosition] = carteEnCours;
+>>>>>>> luc
             }
         }
+        //int carteBrassees = PaquetCartes.Count;
+        //while (carteBrassees > 1)
+        //{
+        //    carteBrassees--;
+        //    int carteAleatoire = rnd.Next(carteBrassees + 1);
+        //    Carte value = PaquetCartes[carteAleatoire];
+        //    PaquetCartes[carteAleatoire] = PaquetCartes[carteBrassees];
+        //    PaquetCartes[carteBrassees] = value;
 
+<<<<<<< HEAD
+=======
+        //}
+    
+
+>>>>>>> luc
         public static void DistribuerLesCartes()
         {
             foreach (Joueur joueur in Joueurs)

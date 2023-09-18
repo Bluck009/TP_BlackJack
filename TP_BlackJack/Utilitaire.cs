@@ -29,7 +29,7 @@ namespace TP_BlackJack
 
                 return true;
             }
-            catch (FormatException)
+            catch (Exception)
             {
                 return false;
             }

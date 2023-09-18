@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_BlackJack
 {
-    public class Dealer : Carte, IJouer
+    public class Dealer : IJouer
     {
         private bool plusQue21;
 
@@ -28,8 +28,8 @@ namespace TP_BlackJack
                 main = value;
             }
         }
-        
-        public Dealer(int p_valeur, Sorte p_sorte) : base(p_valeur, p_sorte)
+
+        public Dealer()
         {
             this.Main = new List<Carte>();
         }
