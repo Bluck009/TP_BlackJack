@@ -44,45 +44,39 @@ namespace TP_BlackJack
             lblLesJoueurs = new System.Windows.Forms.Label();
             lblListeJoueurs = new System.Windows.Forms.Label();
             lblAjoutJoueur = new System.Windows.Forms.Label();
-<<<<<<< HEAD
             txtListeJoueurs = new System.Windows.Forms.TextBox();
             txtErrorMessage = new System.Windows.Forms.TextBox();
             txtBotErrMsg = new System.Windows.Forms.TextBox();
             txtMsgErrAjouterJoueur = new System.Windows.Forms.TextBox();
-=======
-            txtErrorMessage = new System.Windows.Forms.TextBox();
-            txtMsgErrAjouterJoueur = new System.Windows.Forms.TextBox();
             txtListeJoueur = new System.Windows.Forms.RichTextBox();
             txtJoueruChoisi = new System.Windows.Forms.TextBox();
             txtMsgErrChoisirJoueur = new System.Windows.Forms.TextBox();
-            txtBotErrMsg = new System.Windows.Forms.TextBox();
->>>>>>> luc
             SuspendLayout();
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-<<<<<<< HEAD
+
             lblEmail.Location = new System.Drawing.Point(395, 255);
-=======
+
             lblEmail.Location = new System.Drawing.Point(396, 255);
->>>>>>> luc
+
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new System.Drawing.Size(53, 20);
             lblEmail.TabIndex = 0;
             lblEmail.Text = "Email :";
-<<<<<<< HEAD
+
             //lblEmail.Click += lblEmail_Click;
             // 
             // txtEmail
             // 
             txtEmail.Location = new System.Drawing.Point(454, 255);
-=======
+
             // 
             // txtEmail
             // 
             txtEmail.Location = new System.Drawing.Point(455, 255);
->>>>>>> luc
+
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new System.Drawing.Size(186, 27);
             txtEmail.TabIndex = 1;
@@ -102,10 +96,9 @@ namespace TP_BlackJack
             txtNom.Name = "txtNom";
             txtNom.Size = new System.Drawing.Size(186, 27);
             txtNom.TabIndex = 3;
-<<<<<<< HEAD
+
             //txtNom.TextChanged += txtNom_TextChanged;
-=======
->>>>>>> luc
+
             // 
             // lblDateNaissance
             // 
@@ -122,10 +115,9 @@ namespace TP_BlackJack
             txtDateNaissance.Name = "txtDateNaissance";
             txtDateNaissance.Size = new System.Drawing.Size(128, 27);
             txtDateNaissance.TabIndex = 5;
-<<<<<<< HEAD
+
             //txtDateNaissance.TextChanged += txtDateNaissance_TextChanged;
-=======
->>>>>>> luc
+
             // 
             // btnAjouter
             // 
@@ -216,7 +208,7 @@ namespace TP_BlackJack
             lblAjoutJoueur.TabIndex = 14;
             lblAjoutJoueur.Text = "Ajouter un nouveau joueur";
             // 
-<<<<<<< HEAD
+
             // txtListeJoueurs
             // 
             txtListeJoueurs.Location = new System.Drawing.Point(56, 255);
@@ -225,49 +217,46 @@ namespace TP_BlackJack
             txtListeJoueurs.Size = new System.Drawing.Size(280, 174);
             txtListeJoueurs.TabIndex = 15;
             // 
-=======
->>>>>>> luc
+
             // txtErrorMessage
             // 
-            txtErrorMessage.BackColor = System.Drawing.SystemColors.Control;
-            txtErrorMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtErrorMessage.ForeColor = System.Drawing.Color.DarkRed;
-            txtErrorMessage.ImeMode = System.Windows.Forms.ImeMode.Off;
-            txtErrorMessage.Location = new System.Drawing.Point(396, 384);
-            txtErrorMessage.Multiline = true;
-            txtErrorMessage.Name = "txtErrorMessage";
-            txtErrorMessage.ReadOnly = true;
-            txtErrorMessage.Size = new System.Drawing.Size(335, 27);
-            txtErrorMessage.TabIndex = 16;
+            //txtErrorMessage.BackColor = System.Drawing.SystemColors.Control;
+            //txtErrorMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            //txtErrorMessage.ForeColor = System.Drawing.Color.DarkRed;
+            //txtErrorMessage.ImeMode = System.Windows.Forms.ImeMode.Off;
+            //txtErrorMessage.Location = new System.Drawing.Point(396, 384);
+            //txtErrorMessage.Multiline = true;
+            //txtErrorMessage.Name = "txtErrorMessage";
+            //txtErrorMessage.ReadOnly = true;
+            //txtErrorMessage.Size = new System.Drawing.Size(335, 27);
+            //txtErrorMessage.TabIndex = 16;
             // 
-<<<<<<< HEAD
+
             // txtBotErrMsg
             // 
-            txtBotErrMsg.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtBotErrMsg.ForeColor = System.Drawing.Color.Navy;
-            txtBotErrMsg.Location = new System.Drawing.Point(400, 474);
-            txtBotErrMsg.Multiline = true;
-            txtBotErrMsg.Name = "txtBotErrMsg";
-            txtBotErrMsg.ReadOnly = true;
-            txtBotErrMsg.Size = new System.Drawing.Size(335, 27);
-            txtBotErrMsg.TabIndex = 17;
+            //txtBotErrMsg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            //txtBotErrMsg.ForeColor = System.Drawing.Color.Navy;
+            //txtBotErrMsg.Location = new System.Drawing.Point(400, 474);
+            //txtBotErrMsg.Multiline = true;
+            //txtBotErrMsg.Name = "txtBotErrMsg";
+            //txtBotErrMsg.ReadOnly = true;
+            //txtBotErrMsg.Size = new System.Drawing.Size(335, 27);
+            //txtBotErrMsg.TabIndex = 17;
             // 
-=======
->>>>>>> luc
+
             // txtMsgErrAjouterJoueur
             // 
-            txtMsgErrAjouterJoueur.BackColor = System.Drawing.SystemColors.Control;
-            txtMsgErrAjouterJoueur.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtMsgErrAjouterJoueur.ForeColor = System.Drawing.Color.DarkRed;
-            txtMsgErrAjouterJoueur.ImeMode = System.Windows.Forms.ImeMode.Off;
-            txtMsgErrAjouterJoueur.Location = new System.Drawing.Point(395, 172);
-            txtMsgErrAjouterJoueur.Multiline = true;
-            txtMsgErrAjouterJoueur.Name = "txtMsgErrAjouterJoueur";
-            txtMsgErrAjouterJoueur.ReadOnly = true;
-            txtMsgErrAjouterJoueur.Size = new System.Drawing.Size(335, 27);
-            txtMsgErrAjouterJoueur.TabIndex = 18;
-<<<<<<< HEAD
-=======
+            //txtMsgErrAjouterJoueur.BackColor = System.Drawing.SystemColors.Control;
+            //txtMsgErrAjouterJoueur.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            //txtMsgErrAjouterJoueur.ForeColor = System.Drawing.Color.DarkRed;
+            //txtMsgErrAjouterJoueur.ImeMode = System.Windows.Forms.ImeMode.Off;
+            //txtMsgErrAjouterJoueur.Location = new System.Drawing.Point(395, 172);
+            //txtMsgErrAjouterJoueur.Multiline = true;
+            //txtMsgErrAjouterJoueur.Name = "txtMsgErrAjouterJoueur";
+            //txtMsgErrAjouterJoueur.ReadOnly = true;
+            //txtMsgErrAjouterJoueur.Size = new System.Drawing.Size(335, 27);
+            //txtMsgErrAjouterJoueur.TabIndex = 18;
+
             // 
             // txtListeJoueur
             // 
@@ -276,7 +265,7 @@ namespace TP_BlackJack
             txtListeJoueur.Size = new System.Drawing.Size(253, 189);
             txtListeJoueur.TabIndex = 19;
             txtListeJoueur.Text = "";
-            txtListeJoueur.MouseClick += txtListeJoueur_MouseClick;
+            //txtListeJoueur.MouseClick += txtListeJoueur_MouseClick;
             // 
             // txtJoueruChoisi
             // 
@@ -300,36 +289,36 @@ namespace TP_BlackJack
             // 
             // txtBotErrMsg
             // 
-            txtBotErrMsg.BackColor = System.Drawing.SystemColors.Control;
-            txtBotErrMsg.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtBotErrMsg.ForeColor = System.Drawing.Color.DarkRed;
-            txtBotErrMsg.ImeMode = System.Windows.Forms.ImeMode.Off;
-            txtBotErrMsg.Location = new System.Drawing.Point(396, 474);
-            txtBotErrMsg.Multiline = true;
-            txtBotErrMsg.Name = "txtBotErrMsg";
-            txtBotErrMsg.ReadOnly = true;
-            txtBotErrMsg.Size = new System.Drawing.Size(339, 27);
-            txtBotErrMsg.TabIndex = 22;
->>>>>>> luc
+            //txtBotErrMsg.BackColor = System.Drawing.SystemColors.Control;
+            //txtBotErrMsg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            //txtBotErrMsg.ForeColor = System.Drawing.Color.DarkRed;
+            //txtBotErrMsg.ImeMode = System.Windows.Forms.ImeMode.Off;
+            //txtBotErrMsg.Location = new System.Drawing.Point(396, 474);
+            //txtBotErrMsg.Multiline = true;
+            //txtBotErrMsg.Name = "txtBotErrMsg";
+            //txtBotErrMsg.ReadOnly = true;
+            //txtBotErrMsg.Size = new System.Drawing.Size(339, 27);
+            //txtBotErrMsg.TabIndex = 22;
+
             // 
             // FrmAccueil
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(800, 587);
-<<<<<<< HEAD
+
             Controls.Add(txtMsgErrAjouterJoueur);
             Controls.Add(txtBotErrMsg);
             Controls.Add(txtErrorMessage);
             Controls.Add(txtListeJoueurs);
-=======
+
             Controls.Add(txtBotErrMsg);
             Controls.Add(txtMsgErrChoisirJoueur);
             Controls.Add(txtJoueruChoisi);
             Controls.Add(txtListeJoueur);
             Controls.Add(txtMsgErrAjouterJoueur);
             Controls.Add(txtErrorMessage);
->>>>>>> luc
+
             Controls.Add(lblAjoutJoueur);
             Controls.Add(lblListeJoueurs);
             Controls.Add(lblLesJoueurs);
@@ -369,18 +358,18 @@ namespace TP_BlackJack
         private System.Windows.Forms.Label lblLesJoueurs;
         private System.Windows.Forms.Label lblListeJoueurs;
         private System.Windows.Forms.Label lblAjoutJoueur;
-<<<<<<< HEAD
+
         private System.Windows.Forms.TextBox txtListeJoueurs;
         private System.Windows.Forms.TextBox txtErrorMessage;
         private System.Windows.Forms.TextBox txtBotErrMsg;
         private System.Windows.Forms.TextBox txtMsgErrAjouterJoueur;
-=======
-        private System.Windows.Forms.TextBox txtErrorMessage;
-        private System.Windows.Forms.TextBox txtMsgErrAjouterJoueur;
+
+        //private System.Windows.Forms.TextBox txtErrorMessage;
+        //private System.Windows.Forms.TextBox txtMsgErrAjouterJoueur;
         private System.Windows.Forms.RichTextBox txtListeJoueur;
         private System.Windows.Forms.TextBox txtJoueruChoisi;
         private System.Windows.Forms.TextBox txtMsgErrChoisirJoueur;
-        private System.Windows.Forms.TextBox txtBotErrMsg;
->>>>>>> luc
+        //private System.Windows.Forms.TextBox txtBotErrMsg;
+
     }
 }

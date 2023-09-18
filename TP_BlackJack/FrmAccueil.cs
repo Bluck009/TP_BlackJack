@@ -1,27 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-<<<<<<< HEAD
-=======
-using System.Reflection;
->>>>>>> luc
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< HEAD
-using TP_BlackJack;
 
-
-=======
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
->>>>>>> luc
 
 namespace TP_BlackJack
 {
@@ -42,10 +22,9 @@ namespace TP_BlackJack
             get { return tousLesJoueurs; }
             set { tousLesJoueurs = value; }
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> luc
+
+
         public FrmAccueil()
         {
             InitializeComponent();
@@ -55,46 +34,24 @@ namespace TP_BlackJack
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            DateTime date = DateTime.Now;
-=======
+
             DateTime date = DateTime.Now; // doit ajouter validation de date
->>>>>>> luc
+
             date = date.AddYears(-18);
             if (Utilitaire.ValiderEmail(txtEmail.Text) && Utilitaire.ValiderChaineObligatoire(txtNom.Text))
             {
                 txtErrorMessage.Text = String.Empty;
                 Joueur joueur = new Humain(txtNom.Text, txtEmail.Text, date);
                 this.TousLesJoueurs.Add(joueur);
-<<<<<<< HEAD
+
                 txtListeJoueurs.AppendText(joueur.Nom + "\r\n");
-=======
-                txtListeJoueur.AppendText(joueur.Nom + "\r\n");
->>>>>>> luc
+
                 return;
             }
             txtErrorMessage.Text = "Email ou nom invalide. ";
 
         }
-<<<<<<< HEAD
 
-        private void btnCommencer_Click(object sender, EventArgs e)
-        {
-            if (Utilitaire.ValiderChaineObligatoire(cmbNombreBots.Text))
-            {
-                txtBotErrMsg.Text = String.Empty;
-                return;
-            }
-            txtBotErrMsg.Text = "Vous devez choisir le nombre de bot(s). ";
-            if (Utilitaire.ValiderChaineObligatoire(txtListeJoueurs.Text))
-            {
-                txtMsgErrAjouterJoueur.Text = String.Empty;
-                return;
-            }
-            txtMsgErrAjouterJoueur.Text = "Vous devez céer plus de joueurs! ";
-        }
-
-=======
         private void btnCommencer_Click(object sender, EventArgs e)
         {
             int countDown = 4;
@@ -132,12 +89,12 @@ namespace TP_BlackJack
 
             if (this.JoueursChoisis.Count != 0)
             {
-                txtMsgErrChoisirJoueur.Text = String.Empty;
+                // txtMsgErrChoisirJoueur.Text = String.Empty;
                 countDown--;
             }
             else
             {
-                txtMsgErrChoisirJoueur.Text = "Vous devez choisir un joueur. ";
+                // txtMsgErrChoisirJoueur.Text = "Vous devez choisir un joueur. ";
             }
 
             if (countDown == 0)
@@ -154,17 +111,13 @@ namespace TP_BlackJack
             }
 
         }
->>>>>>> luc
+
         private void FrmAccueil_Load(object sender, EventArgs e)
         {
             for (int nbBot = 0; nbBot < 4; nbBot++)
             {
                 cmbNombreBots.Items.Add(nbBot.ToString());
             }
-<<<<<<< HEAD
-
-            //FrmBlackjack black = new FrmBlackjack();
-            //black.ShowDialog();
 
         }
 
@@ -183,30 +136,27 @@ namespace TP_BlackJack
         //{
 
         //}
-=======
-        }
 
-        private void txtListeJoueur_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (this.TousLesJoueurs.Count != 0)
-            {
-                int p = txtListeJoueur.GetCharIndexFromPosition(e.Location);
-                int line = txtListeJoueur.GetLineFromCharIndex(p);
-                txtListeJoueur.SelectionStart = txtListeJoueur.Text[line];
-                txtListeJoueur.SelectionLength = txtListeJoueur.Text[line];
-                Joueur joueurSelection = this.TousLesJoueurs[line];
-                if (this.joueursChoisis.Count != 0)
-                {
-                    this.joueursChoisis[0] = joueurSelection;
-                }
-                else
-                {
-                    this.JoueursChoisis.Add(joueurSelection);
-                }
-                txtJoueruChoisi.Text = this.JoueursChoisis[0].Nom; // juste pour valider
-            }
-        }
-
->>>>>>> luc
     }
+
+    //private void txtListeJoueur_MouseClick(object sender, MouseEventArgs e)
+    //{
+    //    if (this.TousLesJoueurs.Count != 0)
+    //    {
+    //        int p = txtListeJoueur.GetCharIndexFromPosition(e.Location);
+    //        int line = txtListeJoueur.GetLineFromCharIndex(p);
+    //        txtListeJoueur.SelectionStart = txtListeJoueur.Text[line];
+    //        txtListeJoueur.SelectionLength = txtListeJoueur.Text[line];
+    //        Joueur joueurSelection = this.TousLesJoueurs[line];
+    //        if (this.joueursChoisis.Count != 0)
+    //        {
+    //            this.joueursChoisis[0] = joueurSelection;
+    //        }
+    //        else
+    //        {
+    //            this.JoueursChoisis.Add(joueurSelection);
+    //        }
+    //        txtJoueruChoisi.Text = this.JoueursChoisis[0].Nom; // juste pour valider
+    //    }
+    //}
 }

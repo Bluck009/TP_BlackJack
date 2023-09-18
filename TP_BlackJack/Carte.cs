@@ -34,7 +34,7 @@ namespace TP_BlackJack
                 sorte = value; }
         }
 
-        public Carte (int p_valeur, Sorte p_sorte) : base("Nom_Default", "Email_Default")
+        public Carte (int p_valeur, Sorte p_sorte) 
         {
             this.Valeur = p_valeur;
             this.Sorte = p_sorte;
