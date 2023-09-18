@@ -100,14 +100,15 @@ namespace TP_BlackJack
                 txtMsgErrChoisirJoueur.Text = "Vous devez choisir un joueur. ";
             }
 
-            if(countDown == 0) { 
-            //Random random = new Random();
-            int nbBotToAdd = int.Parse(cmbNombreBots.Text);
-            for (int bot = 1; bot <= nbBotToAdd; bot++)
+            if (countDown == 0)
+            {
+                //Random random = new Random();
+                int nbBotToAdd = int.Parse(cmbNombreBots.Text);
+                for (int bot = 1; bot <= nbBotToAdd; bot++)
                 {
                     this.JoueursChoisis.Add(this.TousLesJoueurs[bot]); // reste random a faire
-                }                  
- 
+                }
+
                 FrmBlackjack black = new FrmBlackjack();
                 black.ShowDialog();
             }
